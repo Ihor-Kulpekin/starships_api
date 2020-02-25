@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-import ListStarships from '../components/ListStarships';
-import {changePage, getStarships} from '../actions/actions';
+import ListStarships from './ListStarships';
+import {changePage, getStarships} from '../../actions/actions';
 
 const StarshipsContainer = () => {
   const starships = useSelector((state) => state.starships);
@@ -19,9 +19,9 @@ const StarshipsContainer = () => {
   useEffect(fetchStarships, []);
 
   return (
-    <div>
+    <>
       <ListStarships changePage={handleChangePage} starships={starships}/>
-    </div>
+    </>
   );
 };
 

@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {getDetailStarship} from "../actions/actions";
-import StarshipDetails from "../components/StarshipDetails";
+import {useDispatch, useSelector} from 'react-redux';
+
+import {getDetailStarship} from '../../actions/actions';
+import StarshipDetails from './StarshipDetails';
 
 const StarshipDetailsContainer = ({match}) => {
 
-  const starshipDetails = useSelector((state)=>state.starshipDetails);
+  const starshipDetails = useSelector((state) => state.starshipDetails);
 
   const dispatch = useDispatch();
 
@@ -13,13 +14,13 @@ const StarshipDetailsContainer = ({match}) => {
     dispatch(getDetailStarship(match.params.id))
   };
 
-  useEffect(getDetailsStarship1,[]);
+  useEffect(getDetailsStarship1, []);
 
   return (
     <>
       <StarshipDetails id={match.params.id} starshipDetails={starshipDetails}/>
     </>
-    )
+  )
 };
 
 export default StarshipDetailsContainer;

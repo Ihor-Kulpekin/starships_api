@@ -1,0 +1,40 @@
+.boxes {
+  width: content-box;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  height: content-box;
+}
+
+.box {
+  width: content-box;
+  height: content-box;
+  border: solid 1px #e7ebbd;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  flex-direction: column;
+  box-shadow: 0.4em 0.4em 10px rgba(122, 122, 122, 0.5);
+}
+
+.box:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.info {
+  width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.changePageBtn {
+  width: 100px;
+}

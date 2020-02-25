@@ -10,13 +10,13 @@ export const getStarships = async (search) => {
     url += '?search=' + encodeURIComponent(search)
   }
 
-  return getData(url);
+  return await getData(url);
 };
 
 export const changePage = async (value) => {
   return await getData(value);
 };
 
-export const getDetailsStarship =  (starshipId) =>{
-  return   getData('https://swapi.co/api/starships/' + starshipId)
+export const getDetailsStarship = (starshipId) => {
+  return getData('https://swapi.co/api/starships/' + starshipId)
 };

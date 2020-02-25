@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CircularProgress from '@material-ui/core/CircularProgress';
-import {MDBCard, MDBCardBody, MDBCol, MDBContainer, MDBDataTable, MDBRow} from 'mdbreact';
+import {MDBContainer, MDBTable, MDBTableBody, MDBTableHead} from 'mdbreact';
 
 const StarshipDetails = (props) => {
   const {starshipDetails, id} = props;
@@ -12,15 +11,21 @@ const StarshipDetails = (props) => {
       {
         label: 'Name',
         field: 'name',
-        width: '400px'
+        width: '400px',
+        color: '#222'
       },
       {
         label: 'Value',
         field: 'value',
-        width: 400,
+        width: '400px',
+        color: '#222'
       }
     ],
     rows: [
+      {
+        name: 'Name',
+        value: starshipDetails[id] !== undefined ? starshipDetails[id].name : ''
+      },
       {
         name: 'Model',
         value: starshipDetails[id] !== undefined ? starshipDetails[id].model : ''
@@ -70,19 +75,26 @@ const StarshipDetails = (props) => {
 
   return (
     <MDBContainer>
-      <MDBRow>
-        <MDBCol>
-          {starshipDetails !== undefined && (
-            starshipDetails[id] ?
-              <MDBCard>
-                <MDBCardBody>
-                  <MDBDataTable responsive paging={false} data={data}/>
-                </MDBCardBody>
-              </MDBCard> :
-              <CircularProgress/>
-          )}
-        </MDBCol>
-      </MDBRow>
+      <MDBTable style={{marginTop: 35, borderRadius: 5}} className="table-hover table table-dark">
+        <MDBTableHead>
+          <tr>
+            <th>Name</th>
+            <th>Value</th>
+          </tr>
+        </MDBTableHead>
+        <MDBTableBody>
+          {
+            data.rows.map(row => {
+              return (
+                <tr>
+                  <td>{row.name}</td>
+                  <td>{row.value}</td>
+                </tr>
+              )
+            })
+          }
+        </MDBTableBody>
+      </MDBTable>
     </MDBContainer>
   )
 };
