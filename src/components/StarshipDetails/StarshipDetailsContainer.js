@@ -10,15 +10,15 @@ const StarshipDetailsContainer = ({match}) => {
 
   const dispatch = useDispatch();
 
-  const getDetailsStarship1 = () => {
+  const getDetails = () => {
     dispatch(getDetailStarship(match.params.id))
   };
 
-  useEffect(getDetailsStarship1, []);
+  useEffect(getDetails, []);
 
   return (
     <>
-      <StarshipDetails id={match.params.id} starshipDetails={starshipDetails}/>
+        <StarshipDetails id={match.params.id} starshipDetails={starshipDetails}/>
     </>
   )
 };

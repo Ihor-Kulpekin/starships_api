@@ -84,9 +84,9 @@ const StarshipDetails = (props) => {
         </MDBTableHead>
         <MDBTableBody>
           {
-            data.rows.map(row => {
+            data.rows.map((row,index) => {
               return (
-                <tr>
+                <tr key={index}>
                   <td>{row.name}</td>
                   <td>{row.value}</td>
                 </tr>
