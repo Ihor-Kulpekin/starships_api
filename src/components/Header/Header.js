@@ -17,9 +17,10 @@ const useStyles = makeStyles(() => ({
       textDecoration: 'none',
     }
   },
-  navLink: {
+  link: {
     color: 'rgba(255,255,255,0.49)',
     textDecoration: 'none',
+    padding:5,
     "&:hover": {
       color: 'rgba(255,255,255,0.75)',
       textDecoration: 'none',
@@ -51,12 +52,8 @@ const Header = () => {
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link className='nav-link'>
-            <NavLink to="/" className={styles.navLink}>HOME</NavLink>
-          </Nav.Link>
-          <Nav.Link className="nav-link" href="/list">
-            <NavLink to="/list" className={styles.navLink}>STARSHIPS</NavLink>
-          </Nav.Link>
+          <NavLink to="/" className={styles.link}>HOME</NavLink>
+          <NavLink to="/list" className={styles.link}>STARSHIPS</NavLink>
         </Nav>
         <Form inline>
           <FormControl value={search} onChange={changeSearch} type="text" placeholder="Search..."
