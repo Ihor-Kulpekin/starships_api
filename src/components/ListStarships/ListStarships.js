@@ -5,7 +5,6 @@ import StarshipItem from './StarshipItem/StarshipItem';
 import styles from './ListStarships.module.css'
 
 import {MDBBtn} from 'mdbreact';
-import {CircularProgress} from '@material-ui/core';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ListStarships = (props) => {
@@ -21,7 +20,7 @@ const ListStarships = (props) => {
                               styles={styles}
                               url={starship.url}
                               starship={starship}/>)
-              : <CircularProgress/>
+              : <p>No Starship</p>
           )
           }
         </div>
