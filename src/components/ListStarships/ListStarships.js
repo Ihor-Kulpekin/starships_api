@@ -7,8 +7,7 @@ import styles from './ListStarships.module.css'
 import {MDBBtn} from 'mdbreact';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const ListStarships = (props) => {
-  const {results, next, previous} = props.starships;
+const ListStarships = ({results, previous, next, changePage}) => {
   return (
     <div>
       <div className={styles.info}>
@@ -29,11 +28,11 @@ const ListStarships = (props) => {
         results.length ?
           <div className='d-flex justify-content-between' style={{marginTop: 5, marginBottom: 5}}>
             <MDBBtn color='dark' className={styles.changePageBtn} rounded disabled={!previous}
-                    onClick={() => props.changePage(previous)}>
+                    onClick={() => changePage(previous)}>
               Previous
             </MDBBtn>
             <MDBBtn color='dark' className={styles.changePageBtn} disabled={!next}
-                    onClick={() => props.changePage(next)}>
+                    onClick={() => changePage(next)}>
               Next
             </MDBBtn>
           </div>
@@ -45,7 +44,10 @@ const ListStarships = (props) => {
 };
 
 ListStarships.propTypes = {
-  starships: PropTypes.object.isRequired
+  results: PropTypes.array.isRequired,
+  next: PropTypes.string.isRequired,
+  previous: PropTypes.string.isRequired,
+  changePage: PropTypes.func.isRequired
 };
 
 export default ListStarships;

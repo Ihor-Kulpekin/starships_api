@@ -26,7 +26,8 @@
     "eslint-config-react-app": "^5.2.0",
     "webpack": "4.41.5",
     "dotenv": "^8.2.0",
-    "react-router": "^5.1.2"
+    "react-router": "^5.1.2",
+    "redux-actions": "^2.6.5"
   },
   "scripts": {
     "start": "react-scripts start",

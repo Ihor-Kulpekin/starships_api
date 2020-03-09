@@ -6,9 +6,9 @@ import ListStarships from './ListStarships';
 import {changePage, getStarships} from '../../actions/actions';
 
 const StarshipsContainer = () => {
-  const starships = useSelector((state) => state.starships);
-  const {search} = useParams();
+  const starships = useSelector((state) => state.starships.payload);
   const dispatch = useDispatch();
+  const {search} = useParams();
 
   const fetchStarships = () => {
     dispatch(getStarships(search))
@@ -22,7 +22,7 @@ const StarshipsContainer = () => {
 
   return (
     <>
-      <ListStarships changePage={handleChangePage} starships={starships}/>
+      <ListStarships changePage={handleChangePage} {...starships}/>
     </>
   );
 };

@@ -1,15 +1,15 @@
-import {ActionTypes} from '../actions/constants';
+import {handleAction} from 'redux-actions';
+
+import {getDetailStarshipSuccess} from '../actions/actions';
 
 const initialState = {};
 
-export default function starshipDetails(state = initialState, action) {
-  switch (action.type) {
-    case ActionTypes.STARSHIP_GET_DETAIL_SUCCESS: {
-      const {starshipId, starshipDetails} = action.payload;
-      return {...state, [starshipId]: starshipDetails}
-    }
-    default: {
-      return state;
-    }
+const starshipDetails = handleAction(getDetailStarshipSuccess, (state, {payload}) => {
+  const {starshipId, starshipDetails} = payload;
+  return {
+    ...state,
+    [starshipId]: starshipDetails
   }
-}
+}, initialState);
+
+export default starshipDetails;

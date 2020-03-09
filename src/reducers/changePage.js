@@ -1,14 +1,14 @@
-import {ActionTypes} from '../actions/constants';
+import {handleAction} from 'redux-actions';
+
+import {getStarshipsSuccess} from '../actions/actions';
 
 const initialState = {};
 
-export default function changePage(state = initialState, action) {
-  switch (action.type) {
-    case ActionTypes.STARSHIPS_GET_SUCCESS: {
-      return action.payload;
-    }
-    default: {
-      return state;
-    }
+const changePage = handleAction(getStarshipsSuccess, (state, {payload}) => {
+  return {
+    ...state,
+    payload
   }
-}
+}, initialState);
+
+export default changePage;

@@ -11,7 +11,7 @@ const StarshipDetailsContainer = () => {
   const {id} = useParams();
 
   const getDetails = () => {
-    dispatch(getDetailStarship(id))
+    dispatch(getDetailStarship(id));
   };
 
   useEffect(getDetails, []);
