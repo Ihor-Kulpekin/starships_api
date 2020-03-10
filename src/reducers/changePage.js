@@ -1,14 +1,32 @@
-import {handleAction} from 'redux-actions';
+import {handleActions} from 'redux-actions';
 
-import {getStarshipsSuccess} from '../actions/actions';
+import {changePage, getStarshipsSuccess} from '../actions/actions';
 
-const initialState = {};
+const initialState = {
+  loading: true
+};
 
-const changePage = handleAction(getStarshipsSuccess, (state, {payload}) => {
-  return {
-    ...state,
-    payload
-  }
-}, initialState);
+// const changePage = handleAction(getStarshipsSuccess, (state, {payload}) => {
+//   return {
+//     ...state,
+//     payload
+//   }
+// }, initialState);
 
-export default changePage;
+export default {
+  changePage: handleActions({
+    [changePage]: (state) => {
+      return {
+        ...state,
+        loading: true
+      }
+    },
+    [getStarshipsSuccess]:(state,{payload})=>{
+      return{
+        ...state,
+        payload,
+        loading: false
+      }
+    }
+  },initialState)
+};

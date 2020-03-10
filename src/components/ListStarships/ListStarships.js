@@ -24,21 +24,16 @@ const ListStarships = ({results, previous, next, changePage}) => {
           }
         </div>
       </div>
-      {results !== undefined && (
-        results.length ?
-          <div className='d-flex justify-content-between' style={{marginTop: 5, marginBottom: 5}}>
-            <MDBBtn color='dark' className={styles.changePageBtn} rounded disabled={!previous}
-                    onClick={() => changePage(previous)}>
-              Previous
-            </MDBBtn>
-            <MDBBtn color='dark' className={styles.changePageBtn} disabled={!next}
-                    onClick={() => changePage(next)}>
-              Next
-            </MDBBtn>
-          </div>
-          : ''
-      )
-      }
+      <div className='d-flex justify-content-between' style={{marginTop: 5, marginBottom: 5}}>
+        <MDBBtn color='dark' className={styles.changePageBtn} rounded disabled={!previous}
+                onClick={() => changePage(previous)}>
+          Previous
+        </MDBBtn>
+        <MDBBtn color='dark' className={styles.changePageBtn} disabled={!next}
+                onClick={() => changePage(next)}>
+          Next
+        </MDBBtn>
+      </div>
     </div>
   )
 };

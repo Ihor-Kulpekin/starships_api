@@ -1,14 +1,25 @@
-import {handleAction} from 'redux-actions';
+import {handleActions} from 'redux-actions';
 
-import {getStarshipsSuccess} from '../actions/actions';
+import {getStarships, getStarshipsSuccess} from '../actions/actions';
 
-const initialState = {};
+const initialState = {
+  loading: true
+};
 
-const starships=handleAction(getStarshipsSuccess,(state,{payload})=>{
-  return{
-    ...state,
-    payload
-  }
-},initialState);
-
-export default starships;
+export default {
+  starships: handleActions({
+    [getStarships]: (state) => {
+      return {
+        ...state,
+        loading: true
+      }
+    },
+    [getStarshipsSuccess]: (state, {payload}) => {
+      return {
+        ...state,
+        loading: false,
+        payload
+      }
+    }
+  }, initialState)
+};
