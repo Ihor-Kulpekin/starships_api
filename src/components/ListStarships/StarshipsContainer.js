@@ -10,6 +10,7 @@ import {CircularProgress} from '@material-ui/core';
 const StarshipsContainer = () => {
   const starships = useSelector((state) => state.starships.payload);
   const loading = useSelector((state) => state.starships.loading);
+  const changePageLoading = useSelector((state)=>state.changePage.loading);
   const dispatch = useDispatch();
   const {search} = useParams();
 
@@ -29,7 +30,7 @@ const StarshipsContainer = () => {
 
   return (
     <>
-      {loading === true ? <CircularProgress color={"inherit"}/> :
+      {loading === true ||changePageLoading===true? <CircularProgress color={"inherit"}/> :
         <ListStarships changePage={handleChangePage} {...starships}/>}
     </>
   );

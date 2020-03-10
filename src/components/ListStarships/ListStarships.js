@@ -40,8 +40,8 @@ const ListStarships = ({results, previous, next, changePage}) => {
 
 ListStarships.propTypes = {
   results: PropTypes.array.isRequired,
-  next: PropTypes.string.isRequired,
-  previous: PropTypes.string.isRequired,
+  next: PropTypes.string,
+  previous: PropTypes.string,
   changePage: PropTypes.func.isRequired
 };
 
