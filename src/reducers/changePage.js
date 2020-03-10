@@ -6,13 +6,6 @@ const initialState = {
   loading: true
 };
 
-// const changePage = handleAction(getStarshipsSuccess, (state, {payload}) => {
-//   return {
-//     ...state,
-//     payload
-//   }
-// }, initialState);
-
 export default {
   changePage: handleActions({
     [changePage]: (state) => {
@@ -21,12 +14,12 @@ export default {
         loading: true
       }
     },
-    [getStarshipsSuccess]:(state,{payload})=>{
-      return{
+    [getStarshipsSuccess]: (state, {payload}) => {
+      return {
         ...state,
         payload,
         loading: false
       }
     }
-  },initialState)
+  }, initialState)
 };

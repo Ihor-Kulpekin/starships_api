@@ -4,7 +4,8 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {getDetailStarship} from '../../actions/actions';
 import StarshipDetails from './StarshipDetails';
-import {CircularProgress} from "@material-ui/core";
+
+import {CircularProgress} from '@material-ui/core';
 
 const StarshipDetailsContainer = () => {
   const starshipDetails = useSelector((state) => state.starshipDetails);
@@ -23,7 +24,7 @@ const StarshipDetailsContainer = () => {
 
   return (
     <>
-      {starshipDetails.loading===true?<CircularProgress color={"inherit"}/>:
+      {starshipDetails.loading === true ? <CircularProgress color={"inherit"}/> :
         <StarshipDetails id={id} starshipDetails={starshipDetails}/>}
     </>
   )

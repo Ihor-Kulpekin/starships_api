@@ -4,7 +4,8 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import ListStarships from './ListStarships';
 import {changePage, getStarships} from '../../actions/actions';
-import {CircularProgress} from "@material-ui/core";
+
+import {CircularProgress} from '@material-ui/core';
 
 const StarshipsContainer = () => {
   const starships = useSelector((state) => state.starships.payload);
