@@ -6,8 +6,12 @@ import styles from './ListStarships.module.css'
 
 import {MDBBtn} from 'mdbreact';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {NavLink} from "react-router-dom";
 
 const ListStarships = ({results, previous, next, changePage}) => {
+  const pageNumberRedExp = /\d/;
+  const previousPage = previous !== null ? previous.match(pageNumberRedExp) : '';
+  const nextPage = next !== null ? next.match(pageNumberRedExp) : '';
   return (
     <div>
       <div className={styles.info}>
@@ -25,14 +29,18 @@ const ListStarships = ({results, previous, next, changePage}) => {
         </div>
       </div>
       <div className='d-flex justify-content-between' style={{marginTop: 5, marginBottom: 5}}>
-        <MDBBtn color='dark' className={styles.changePageBtn} rounded disabled={!previous}
-                onClick={() => changePage(previous)}>
-          Previous
-        </MDBBtn>
-        <MDBBtn color='dark' className={styles.changePageBtn} disabled={!next}
-                onClick={() => changePage(next)}>
-          Next
-        </MDBBtn>
+        <NavLink to={'/starships?page=' +previousPage}>
+          <MDBBtn color='dark' className={styles.changePageBtn} rounded disabled={!previous}
+                  onClick={() => changePage(previous)}>
+            Previous
+          </MDBBtn>
+        </NavLink>
+        <NavLink to={'/starships?page=' + nextPage}>
+          <MDBBtn color='dark' className={styles.changePageBtn} disabled={!next}
+                  onClick={() => changePage(next)}>
+            Next
+          </MDBBtn>
+        </NavLink>
       </div>
     </div>
   )

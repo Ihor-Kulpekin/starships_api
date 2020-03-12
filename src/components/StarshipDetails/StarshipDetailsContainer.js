@@ -18,9 +18,7 @@ const StarshipDetailsContainer = () => {
     dispatch(getDetailStarship(id));
   };
 
-  useEffect(() => {
-    getDetails();
-  }, []);
+  useEffect(getDetails,[]);
 
   return (
     <>

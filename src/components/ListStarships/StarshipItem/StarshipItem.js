@@ -8,7 +8,7 @@ const StarshipItem = ({starship, url, styles}) => {
   const segments = url.split('/');
   const id = Number(segments[segments.length - 2]);
   return (
-    <MDBLink to={"/details/" + id} className="btn aqua-gradient">
+    <MDBLink to={'/starships/' + id} className="btn aqua-gradient">
       <div className={styles.box} style={{marginBottom: 15, marginTop: 15}}>
         <img
           src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS083DcZFHU7qhuniGN_hcHSvUQ4ZA1krtWuDAyewRMYfujTEHE'

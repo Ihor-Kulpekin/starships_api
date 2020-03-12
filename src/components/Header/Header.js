@@ -53,13 +53,13 @@ const Header = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <NavLink to="/" className={styles.link}>HOME</NavLink>
-          <NavLink onClick={fetchStarships} to="/list" className={styles.link}>STARSHIPS</NavLink>
+          <NavLink onClick={fetchStarships} to="/starships" className={styles.link}>STARSHIPS</NavLink>
         </Nav>
         <Form inline>
           <FormControl value={search} onChange={changeSearch} type="text" placeholder="Search..."
                        className="mr-sm-2 btn-outline-light"/>
           <Button onClick={fetchStarships} variant="light" className="btn-outline-light">
-            <NavLink to={"/list/" + search} className={styles.button}>
+            <NavLink to={"/starships/" + search} className={styles.button}>
               Search
             </NavLink>
           </Button>

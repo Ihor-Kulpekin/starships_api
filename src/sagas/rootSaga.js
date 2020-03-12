@@ -9,7 +9,7 @@ import {getStarshipDetailsSaga} from './starshipDetailsSaga';
 export function* rootSaga() {
   yield all([
     yield debounce(500, ActionTypes.STARSHIPS_GET, getStarshipsSaga),
-    yield debounce(500, ActionTypes.CHANGE_PAGE, changePageSaga),
+    yield takeLatest(ActionTypes.CHANGE_PAGE, changePageSaga),
     yield takeLatest(ActionTypes.STARSHIP_GET_DETAIL, getStarshipDetailsSaga)
   ])
 }
